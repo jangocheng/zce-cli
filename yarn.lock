@@ -514,7 +514,7 @@
   resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-11.13.9.tgz#f80697caca7f7fb2526527a5c5a2743487f05ccc"
   integrity sha1-+AaXysp/f7JSZSelxaJ0NIfwXMw=
 
-"@types/normalize-package-data@^2.4.0":
+"@types/normalize-package-data@*", "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
   resolved "https://registry.npm.taobao.org/@types/normalize-package-data/download/@types/normalize-package-data-2.4.0.tgz#e486d0d97396d79beedd0a6e33f4534ff6b4973e"
   integrity sha1-5IbQ2XOW15vu3QpuM/RTT/a0lz4=
@@ -531,6 +531,18 @@
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
+
+"@types/read-pkg-up@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.npm.taobao.org/@types/read-pkg-up/download/@types/read-pkg-up-3.0.1.tgz#05911057c3be1aade38bfecbb9a8554dbd0582be"
+  integrity sha1-BZEQV8O+Gq3ji/7LuahVTb0Fgr4=
+  dependencies:
+    "@types/normalize-package-data" "*"
+
+"@types/semver@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.npm.taobao.org/@types/semver/download/@types/semver-6.0.0.tgz#86ba89f02a414e39c68d02b351872e4ed31bd773"
+  integrity sha1-hrqJ8CpBTjnGjQKzUYcuTtMb13M=
 
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
@@ -5061,6 +5073,14 @@ read-pkg-up@^4.0.0:
   dependencies:
     find-up "^3.0.0"
     read-pkg "^3.0.0"
+
+read-pkg-up@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.npm.taobao.org/read-pkg-up/download/read-pkg-up-5.0.0.tgz#b6a6741cb144ed3610554f40162aa07a6db621b8"
+  integrity sha1-tqZ0HLFE7TYQVU9AFiqgem22Ibg=
+  dependencies:
+    find-up "^3.0.0"
+    read-pkg "^5.0.0"
 
 read-pkg@^1.0.0:
   version "1.1.0"

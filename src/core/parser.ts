@@ -1,32 +1,18 @@
 import { basename } from 'path'
 
 import * as minimist from 'minimist'
-import buildOptions, { Options } from 'minimist-options'
+import buildOptions from 'minimist-options'
+import * as readPkgUp from 'read-pkg-up'
 
-import { Context } from './types'
+import { Options, Context } from './types'
 
 /**
  * parse context from cli argv
- * @param argv cli argv
- * @param opts command options
+ * @param opts cli options
  */
-export const parse = async (
-  argv: string[],
-  opts?: Options
-): Promise<Context> => {
-  opts = opts || {}
-  // mount package.json
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const pkg = require('../../package.json')
-
-  // cli brand name
-  const brand =
-    typeof pkg.bin === 'string'
-      ? basename(pkg.bin, '.js')
-      : Object.keys(pkg.bin)[0]
-
+export const parse = async (opts: Options): Promise<Context> => {
   // parse argv by minimist
-  const options = minimist(argv, buildOptions(opts))
+  const options = minimist(opts.argv, buildOptions(opts.options))
 
   // row input args
   const input = options._
@@ -50,7 +36,8 @@ export const parse = async (
 
   // return context
   return {
-    brand,
+    // cli brand name
+    brand: opts.brand,
     primary,
     secondary,
     thirdly,
@@ -58,6 +45,7 @@ export const parse = async (
     extras,
     input,
     options,
-    pkg
+    // mount package.json
+    pkg: readPkgUp({ cwd: opts.src })
   }
 }

@@ -1,15 +1,15 @@
-import * as context from './context'
+import * as parser from './parser'
 import { Options } from 'minimist-options'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { name } = require('../../package.json')
 
-test('unit:core:context', async () => {
-  expect(context.parse).toBeTruthy()
+test('unit:core:parser', async () => {
+  expect(parser.parse).toBeTruthy()
 })
 
-test('unit:core:context:parse', async () => {
-  const ctx = await context.parse(['foo', '--bar'])
+test('unit:core:parser:parse', async () => {
+  const ctx = await parser.parse(['foo', '--bar'])
 
   expect(ctx.brand).toBe('zce')
   expect(ctx.primary).toBe('foo')
@@ -22,7 +22,7 @@ test('unit:core:context:parse', async () => {
   expect(ctx.pkg.name).toBe(name)
 })
 
-test('unit:core:context:parse:with-options', async () => {
+test('unit:core:parser:parse:with-options', async () => {
   const opts: Options = {
     foo: {
       alias: 'f'
@@ -34,7 +34,7 @@ test('unit:core:context:parse:with-options', async () => {
     hi: 'string'
   }
 
-  const ctx = await context.parse(['-b'], opts)
+  const ctx = await parser.parse(['-b'], opts)
 
   expect(ctx.options.bar).toBe(true)
 })

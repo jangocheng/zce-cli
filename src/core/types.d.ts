@@ -7,6 +7,13 @@ export interface DynamicObject {
   [key: string]: any
 }
 
+export interface Options {
+  brand: string
+  src: string
+  argv?: string[]
+  options?: Options
+}
+
 export interface Context {
   readonly brand: string
   readonly primary?: string

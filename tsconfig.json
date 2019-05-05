@@ -11,7 +11,7 @@
     "noUnusedLocals": true,
     "outDir": "lib",
     "paths": {
-      "@/*": ["*"]
+      "@*": ["*"]
     },
     "strict": true,
     "target": "es2015"
